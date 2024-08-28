@@ -1,9 +1,9 @@
-const API_KEY = '';
+const API_KEY = '70c1e295ba1e8c8b89b5fea784cb617f';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 let currentPage = 1;
-const moviesPerPage = 20; // Número de filmes por página
+const moviesPerPage = 20; 
 let allMovies = [];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,7 +28,7 @@ function fetchHeroBannerMovies() {
 
 function displayHeroBannerCarousel() {
     const heroCarousel = document.querySelector('.hero-carousel');
-    heroCarousel.innerHTML = ''; // Limpa o carrossel existente
+    heroCarousel.innerHTML = ''; 
 
     const mixedMovies = mixMovies(popularMovies, topRatedMovies);
 
@@ -80,12 +80,12 @@ function startHeroCarousel() {
             slide.style.transform = `translateX(-${100 * currentIndex}%)`;
         });
 
-        // Fetch more movies when the end of the carousel is reached
+        
         if (currentIndex === 0) {
             currentPage++;
             fetchMovies();
         }
-    }, 7500); // Muda o slide a cada 5 segundos
+    }, 7500); 
 }
 
 

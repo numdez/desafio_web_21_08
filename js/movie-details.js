@@ -1,4 +1,4 @@
-const API_KEY = '';
+const API_KEY = '70c1e295ba1e8c8b89b5fea784cb617f';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -12,19 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const movieDetails = document.querySelector('.movie-details');
-    const sidebar = document.querySelector('.sidebar');
+    const movieDetails = document.getElementById('importante');
+    const sidebar = document.getElementById('naoimportante');
 
-    // Função para ajustar a altura da sidebar
+    
     const adjustSidebarHeight = () => {
         const movieDetailsHeight = movieDetails.offsetHeight;
         sidebar.style.height = `${movieDetailsHeight}px`;
     };
 
-    // Ajuste a altura no carregamento da página
     adjustSidebarHeight();
 
-    // Ajuste a altura quando a janela for redimensionada
     window.addEventListener('resize', adjustSidebarHeight);
 });
 
@@ -48,7 +46,6 @@ function displayMovieDetails(data) {
     document.getElementById('release-date').textContent = formatDate(data.release_date);
     document.getElementById('overview').textContent = data.overview;
 
-    // Gêneros
     document.getElementById('genre').textContent = data.genres.map(genre => genre.name).join(', ');
 }
 
