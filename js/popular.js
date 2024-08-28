@@ -1,4 +1,4 @@
-const API_KEY = '';
+const API_KEY = '70c1e295ba1e8c8b89b5fea784cb617f';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -25,25 +25,30 @@ function fetchPopularMovies() {
 function displayMovies(movies) {
     const moviesList = document.getElementById('moviesList');
     moviesList.innerHTML = '';
-    
+
     movies.forEach(movie => {
         const movieElement = document.createElement('div');
-        movieElement.classList.add('movie');
-        
-        const imgSrc = movie.poster_path ? `${IMG_URL}${movie.poster_path}` : 'https://via.placeholder.com/150';
+        movieElement.classList.add('col', 'mb-4');
+
+        const imgSrc = movie.poster_path ? `${IMG_URL}${movie.poster_path}` : 'https://via.placeholder.com/500';
         const formattedDate = formatDate(movie.release_date);
-        
+
         movieElement.innerHTML = `
-            <a href="movie.html?id=${movie.id}">
-                <img src="${imgSrc}" alt="${movie.title}">
-                <h3>${movie.title}</h3>
-                <p>${formattedDate}</p>
-            </a>
+            <div class="card h-100">
+                <a href="movie.html?id=${movie.id}" class="text-decoration-none">
+                    <img src="${imgSrc}" class="card-img-top" alt="${movie.title}">
+                    <div class="card-body">
+                        <h5 class="card-title">${movie.title}</h5>
+                        <p class="card-text">${formattedDate}</p>
+                    </div>
+                </a>
+            </div>
         `;
-        
+
         moviesList.appendChild(movieElement);
     });
 }
+
 
 function formatDate(dateString) {
     const date = new Date(dateString);
