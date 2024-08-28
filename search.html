@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Web - Pesquisa</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pesquisar Filmes</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="search.html">Buscar Filmes</a></li>
+                <li><a href="genres.html">Buscar Gêneros</a></li>
+                <li><a href="about.html">Sobre</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Pesquisar filmes...">
+            <button id="searchButton">Pesquisar</button>
+        </div>
+        <div id="loadingSpinner"></div>
+        <div id="moviesList"></div>
+    </div>
+    <script src="js/search.js"></script>
+</body>
+</html>
