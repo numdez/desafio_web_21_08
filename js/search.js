@@ -43,7 +43,7 @@ function displaySearchResults(movies) {
         
         const imgSrc = `${IMG_URL}${movie.poster_path}`;
         movieElement.innerHTML = `
-            <a href="movie-details.html?id=${movie.id}" class="movie-link">
+            <a href="movie-details.html?id=${movie.id}" style="text-decoration:none" class="movie-link">
                 <img src="${imgSrc}" alt="${movie.title}">
                 <h3>${movie.title}</h3>
                 <p>${formatDate(movie.release_date)}</p>

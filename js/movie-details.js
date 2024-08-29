@@ -4,18 +4,14 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 document.addEventListener('DOMContentLoaded', () => {
     const movieId = new URLSearchParams(window.location.search).get('id');
+    const movieDetails = document.getElementById('importante');
+    const sidebar = document.getElementById('naoimportante');
     
     if (movieId) {
         getMovieDetails(movieId);
         loadPopularMovies();
-    }
-});
+    };
 
-document.addEventListener('DOMContentLoaded', () => {
-    const movieDetails = document.getElementById('importante');
-    const sidebar = document.getElementById('naoimportante');
-
-    
     const adjustSidebarHeight = () => {
         const movieDetailsHeight = movieDetails.offsetHeight;
         sidebar.style.height = `${movieDetailsHeight}px`;
@@ -23,7 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     adjustSidebarHeight();
 
-    window.addEventListener('resize', adjustSidebarHeight);
+    new ResizeObserver(adjustSidebarHeight).observe(movieDetails)
+
+    
 });
 
 
@@ -45,6 +43,7 @@ function displayMovieDetails(data) {
     document.getElementById('movie-poster').src = `${IMG_URL}${data.poster_path}`;
     document.getElementById('release-date').textContent = formatDate(data.release_date);
     document.getElementById('overview').textContent = data.overview;
+    document.getElementById('nota').textContent = data.vote_average;
 
     document.getElementById('genre').textContent = data.genres.map(genre => genre.name).join(', ');
 }

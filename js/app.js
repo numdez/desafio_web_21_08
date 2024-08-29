@@ -115,7 +115,7 @@ function displayPosterMovies(movies, carouselSelector) {
                 <img src="${imgSrc}" alt="${movie.title}">
                 <div class="movie-details">
                     <h5>${movie.title}</h5>
-                    <p>${formattedDate}</p>
+                    <p>Nota: ${movie.vote_average.toFixed(2)}</p>
                 </div>
             </a>
         `;
